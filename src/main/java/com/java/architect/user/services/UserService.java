@@ -29,7 +29,7 @@ public class UserService {
         ResponseTemplateVO responseTemplateVO = new ResponseTemplateVO();
         UserEntity user = userRepository.findByUserId(userId);
         log.info("-- In service of User Details --"+ user.getDepartmentId());
-        Department department = restTemplate.getForObject("http://localhost:9001/departments/"+user.getDepartmentId(), Department.class);
+        Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/"+user.getDepartmentId(), Department.class);
         responseTemplateVO.setUser(user);
         responseTemplateVO.setDepartment(department);
         return responseTemplateVO;
